@@ -1,0 +1,179 @@
+<div class="employee-add">
+    <div class="page-caption">Manage User > Employees > {{isEdit?"Edit Employee":"Add Employee"}}</div>
+    <div class="page-title">{{isEdit?"Edit Employee":"Add Employee"}}</div>
+    <div class="page-form">
+        <div class="row">
+            <div class="col-sm-12 col-md-3 col-lg-3 title-label">
+                <img [src]="employee.image">
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3">
+                <div class="mb-3">
+                    <label for="name" class="form-label profile-label">Profile Image</label>
+                    <p-fileUpload mode="basic" chooseIcon="pi pi-cloud-upload" chooseLabel="Upload Profile Image" name="demo[]" (onSelect)="chooseImage($event)"></p-fileUpload>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Basic Information</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label input-label">Name</label>
+                            <input type="text" #firstName="ngModel" name="firstName" class="form-control" id="name" [(ngModel)]="employee.firstName" placeholder="Enter First Name" required>
+                            <span class="notification" *ngIf="(!validEmployee.validFirstName && !firstName.valid ) || (firstName.touched && !firstName.valid) ">First Name is required*</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dob" class="form-label input-label ">Birth Date</label>
+                            <p-calendar dateFormat="dd/mm/yy" #birthDate="ngModel" name="birthDate" placeholder="DD/MM/YYYY" [(ngModel)]="employee.birthDate" id="dob" [required]="true"></p-calendar>
+                            <span class="notification" *ngIf="(!validEmployee.validBirthDate && !birthDate.valid ) || (birthDate.touched && !birthDate.valid) ">Birth Date is required*</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone-number" class="form-label input-label ">Phone Number</label>
+                            <input type="text" #phoneNumber="ngModel" name="phoneNumber" class="form-control" id="phone-number" [(ngModel)]="employee.phoneNumber" placeholder="Enter Phone Number" (keydown)="validNumberInput($event)" required>
+                            <span class="notification" *ngIf="(!validEmployee.validPhoneNumber && !phoneNumber.valid ) || (phoneNumber.touched && !phoneNumber.valid) ">Phone Number is required*</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="mb-3">
+                            <label for="middle-name" class="form-label input-label">Middle Name</label>
+                            <input type="text" #middleName="ngModel" name="middleName" class="form-control" id="middle-name" [(ngModel)]="employee.middleName" placeholder="Enter Middle Name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="gender" class="form-label input-label">Gender</label>
+                            <select id="gener" #gender="ngModel" name="gender" class="form-select" [(ngModel)]="employee.gender" aria-label="select gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            </select>
+                            <span class="notification" *ngIf="(!validEmployee.validGender && !gender.valid ) || (gender.touched && !gender.valid) ">Gender is required*</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label input-label">Email Address</label>
+                            <input type="email" #email="ngModel" class="form-control" id="email" [(ngModel)]="employee.emailAddress" placeholder="Enter Email Address" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                required>
+                            <span class="notification" *ngIf="(!validEmployee.validEmailAddress && !email.valid ) || (email.touched && !email.valid) ">Email Address is required*</span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="mb-3">
+                            <label for="surname" class="form-label input-label ">Surname</label>
+                            <input type="text" #surname="ngModel" name="surname" class="form-control" id="surname" [(ngModel)]="employee.surName" placeholder="Enter Surname" required>
+                            <span class="notification" *ngIf="(!validEmployee.validSurName && !surname.valid ) || (surname.touched && !surname.valid) ">Surname is required*</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label input-label">Address</label>
+                            <input type="text" #address="ngModel" name="address" class="form-control" id="address" [(ngModel)]="employee.address" placeholder="Enter Address" required>
+                            <span class="notification" *ngIf="(!validEmployee.validAddress && !address.valid ) || (address.touched && !address.valid) ">Address is required*</span>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label">Working Hours</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-3">
+                            <label for="starts-at" class="form-label input-label ">Starts At</label>
+                            <p-calendar dateFormat="dd/mm/yy" #startsAt="ngModel" name="startsAt" [timeOnly]="true" placeholder="HH:MM" [(ngModel)]="employee.startsAt" id="starts-at" onkeydown="return false" [required]="true"></p-calendar>
+                            <span class="notification" *ngIf="(!validEmployee.validStartsAt && !startsAt.valid ) || (startsAt.touched && !startsAt.valid) ">Starts At is required*</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-3">
+                            <label for="ends-in" class="form-label input-label ">Ends In</label>
+                            <p-calendar dateFormat="dd/mm/yy" #endsIn="ngModel" name="ngModel" [timeOnly]="true" placeholder="HH:MM" [(ngModel)]="employee.endsIn" id="dob" id="ends-in" onkeydown="return false" [required]="true"></p-calendar>
+                            <span class="notification" *ngIf="(!validEmployee.validEndsIn && !endsIn.valid ) || (endsIn.touched && !endsIn.valid) ">Ends In is required*</span>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Jobs</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-3">
+                            <label for="job-position" class="form-label input-label">Job Position</label>
+                            <input type="text" class="form-control" #jobPosition="ngModel" name="jobPosition" id="job-position" [(ngModel)]="employee.jobPosition" placeholder="Enter Job Position" required>
+                            <span class="notification" *ngIf="(!validEmployee.validJobPosition && !jobPosition.valid ) || (jobPosition.touched && !jobPosition.valid) ">Job Position is required*</span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-3">
+                            <label for="team" class="form-label input-label">Team</label>
+                            <select id="team" class="form-select" [(ngModel)]="employee.team" aria-label="Enter Team">
+                              <option [value]="team.teamName" *ngFor="let team of teams">{{team.teamName}}</option>
+                       </select>
+                        </div>
+
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Billable Information</label>
+            </div>
+            <div class="col-4">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" [(ngModel)]="employee.userBillable" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+    This user is billable
+  </label>
+                </div>
+
+                <div class="mb-3">
+                    <label for="billable-hours" class="form-label input-label ">Billable Hours</label>
+                    <div class="billable-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="billable-hours" [(ngModel)]="employee.billableHours" (keydown)="validNumberInput($event)" placeholder="Enter Billable Hours">
+                            <div class="input-group-text">Hours</div>
+                        </div>
+                        <button type="button" class="btn btn-primary custom-btn">Enter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-footer">
+        <div class="row">
+            <div class="col-3" style="text-align: right; margin-top:.5rem">
+
+                <button class="save-btn" (click)="addEmployee()">{{  this.isEdit? "Update": "Save"}}</button>
+            </div>
+        </div>
+
+    </div>
+</div>

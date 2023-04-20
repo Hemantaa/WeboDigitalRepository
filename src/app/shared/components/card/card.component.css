@@ -1,0 +1,15 @@
+.card {
+    min-width: 15em !important;
+    background-color: blue;
+    padding: .5rem .8rem .5rem .8rem;
+    color: white;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between !important;
+    border-radius: 5px;
+}
+
+.card_sub_title {
+    font-size: 1.5em;
+    font-weight: bold;
+}

@@ -1,0 +1,36 @@
+.view {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.view__title {
+    font-weight: bold;
+}
+
+.view__name {
+    font-weight: bold;
+}
+
+.view__email {
+    margin-bottom: .5rem;
+}
+
+.view__additional-information {
+    display: flex;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    font-weight: 500;
+}
+
+.view__additonal-information__child>div {
+    padding: .3rem 0 0 0;
+    font-size: 13px;
+}
+
+img {
+    width: 10rem;
+    height: 8rem;
+    border-radius: 50%;
+}

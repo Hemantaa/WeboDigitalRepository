@@ -1,0 +1,15 @@
+<div class="view-container">
+    <div class="view__nav">
+        <div class="view__search-input">
+            <input type="text" pInputText (keyup)="filterRecords()" [(ngModel)]="filterValue" />
+            <i class="pi pi-search search-icon" style="font-size: 1rem"></i>
+        </div>
+        <div>
+            <button class="save-btn" (click)="addEmployeeClick()"><i class="pi pi-plus"></i>Add Employee</button>
+        </div>
+    </div>
+    <div class="view__table">
+        <app-table [columns]="tableColumns" [data]="filteredData" [containerFlag]="'employee'">
+        </app-table>
+    </div>
+</div>

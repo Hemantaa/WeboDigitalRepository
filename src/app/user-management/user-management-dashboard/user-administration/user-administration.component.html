@@ -1,0 +1,19 @@
+<div class="administration">
+    <div class="administration__users-info">
+        <div class="users-info__title">Manage Users</div>
+        <div class="users-info__card">
+            <app-card [cardData]="card1"></app-card>
+            <app-card [cardData]="card2"></app-card>
+        </div>
+    </div>
+    <div class="administration__management">
+        <p-tabView>
+            <p-tabPanel header="Teams">
+                <app-team-view></app-team-view>
+            </p-tabPanel>
+            <p-tabPanel header="Employees">
+                <app-employee-view></app-employee-view>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

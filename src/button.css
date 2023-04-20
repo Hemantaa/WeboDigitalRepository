@@ -1,0 +1,131 @@
+.save-btn {
+    background-color: orange !important;
+    border-color: orange !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    font-size: 13px !important;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    gap: 1rem;
+}
+
+.p-inputtext {
+    margin: 0;
+    height: 2rem !important;
+}
+
+.dialogue-accept-button {
+    background-color: red !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    font-size: 12px !important;
+}
+
+.dialogue-reject-button {
+    background-color: blue !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    font-size: 12px !important;
+}
+
+.qr-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.qr-buttons>div {
+    background-color: white;
+    padding: .4rem 2rem .4rem 2rem !important;
+    font-size: 13px !important;
+    border-radius: 5px;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 2rem;
+    align-items: right;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.download-btn {
+    border: 1px solid green;
+    color: green;
+}
+
+.print-btn {
+    border: 1px solid blue;
+    color: blue;
+}
+
+.download-btn:hover {
+    border: 1px solid green;
+    color: white;
+    background-color: green;
+}
+
+.print-btn:hover {
+    border: 1px solid blue;
+    color: white;
+    background-color: blue;
+}
+
+.edit-profile-btn {
+    background-color: orange !important;
+    border-color: orange !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    font-size: 13px !important;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.filter-btn {
+    color: blue;
+    border: 2px solid blue;
+    border-radius: 5px;
+    padding: .3rem 1rem .3rem 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.apply-btn {
+    background-color: orange !important;
+    border-color: orange !important;
+    padding: .4rem 2rem .4rem 2rem !important;
+    border-radius: 5px;
+    color: white;
+    /* font-weight: bold; */
+    cursor: pointer;
+}
+
+.clear-btn {
+    padding: .4rem 2rem .4rem 2rem !important;
+    border-radius: 5px;
+    color: red;
+    /* font-weight: bold; */
+    cursor: pointer;
+}
+
+.delete-icon {
+    color: red;
+    background-color: rgb(255, 179, 179, 1);
+    border: 1px solid rgb(255, 179, 179, 1);
+}
+
+.edit-icon {
+    color: blue;
+    background-color: #bcbcef;
+    border: 1px solid #bcbcef
+}
+
+.view-icon {
+    color: green;
+    background-color: #65e865;
+    border: 1px solid #65e865;
+}

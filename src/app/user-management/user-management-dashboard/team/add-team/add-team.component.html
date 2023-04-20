@@ -1,0 +1,95 @@
+<div class="team-add">
+    <div class="page-caption">Manage User > Teams > {{isEdit?"Edit Team":"Add Team"}}</div>
+    <div class="page-title">{{isEdit?"Edit Team":"Add Team"}}</div>
+    <div class="page-form">
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Basic Information</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label input-label">Team Name</label>
+                            <input type="text" #teamName="ngModel" name="teamName" class="form-control" id="name" [(ngModel)]="team.teamName" (keypress)="changeQr()" placeholder="Enter Team Name" required>
+                            <span class="notification" *ngIf="(!validTeam.validTeamName && !teamName.valid ) || (teamName.touched && !teamName.valid) ">Team Name is required*</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="mb-3">
+                            <label for="name" class="form-label input-label">Team Password</label>
+                            <input type="password" #password="ngModel" name="password" class="form-control" id="name" [(ngModel)]="team.teamPassword" (keypress)="changeQr()" placeholder="Enter Password" required>
+                            <span class="notification" *ngIf="(!validTeam.validTeamPassword && !password.valid ) || (password.touched && !password.valid) ">Password is required*</span>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Members</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-4">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label input-label">Team Members</label>
+                            <p-multiSelect [options]="employees" optionLabel="firstName" (onChange)="membersChanged($event)" [(ngModel)]="team.teamMembers"></p-multiSelect>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="mb-3">
+                            <label for="billable-hours" class="form-label input-label ">Billable Hours</label>
+                            <div class="billable-group">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="billable-hours" [(ngModel)]="team.billableHours" (keydown)="validNumberInput($event)" placeholder="Enter Billable Hours">
+                                    <div class="input-group-text billable-label">Hours</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 title-label">
+                <label class="form-label ">Team QR</label>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <ngx-qrcode id="qrcode" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value" cssClass="bshadow"></ngx-qrcode>
+                            </div>
+                            <div class="col-lg-7 qr-buttons">
+                                <div class="print-btn" (click)="print()"><i class="pi pi-print"></i>Print</div>
+                                <div class="download-btn" (click)="download()"><i class="pi pi-download"></i>Download</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-footer">
+        <div class="row">
+            <div class="col-3" style="text-align: right; margin-top:.5rem">
+                <button class="save-btn" (click)="addTeam()">{{  this.isEdit? "Update": "Save"}}</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="print-qr">
+    <ngx-qrcode id="printqr" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value" cssClass="bshadow"></ngx-qrcode>
+</div>

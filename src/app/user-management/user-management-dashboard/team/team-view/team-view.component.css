@@ -1,0 +1,16 @@
+.filter-title {
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.range {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}

@@ -1,0 +1,46 @@
+ .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+     background: #ffffff;
+     border-color: orange !important;
+     border-bottom-width: 5px;
+     color: #3B82F6;
+     opacity: 1 !important;
+ }
+ 
+ .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+     border-color: transparent transparent transparent transparent !important;
+     color: black !important;
+     opacity: 0.5 !important;
+     font-size: 15px !important;
+     padding: 0.8rem !important;
+ }
+ 
+ .p-button.p-fileupload-choose {
+     background-color: #10c110 !important;
+     border-color: #10c110 !important;
+ }
+ 
+ .p-calendar {
+     width: 100%;
+     display: block;
+ }
+ 
+ .p-calendar .p-inputtext {
+     background-color: #f9f9f9 !important;
+     font-size: .8rem;
+     font-weight: 620;
+ }
+ 
+ .p-multiSelect {
+     width: 100%;
+     display: block;
+ }
+ 
+ .p-multiselect-label-container {
+     width: 200px;
+     /* height: 30px; */
+ }
+ 
+ .p-chip {
+     background-color: blue !important;
+     color: white !important
+ }

@@ -1,0 +1,31 @@
+<div class="view-container">
+
+    <p-dialog header="Filter" [(visible)]="visible" [closable]="false" [style]="{ width: '30vw' }" [draggable]="false" [resizable]="false">
+        <div class="filter-title">choose man hour range</div>
+        <div style="padding: 1rem;">
+            <p-slider [(ngModel)]="rangeValues" [range]="true" (onChange)="changeSlider($event)"></p-slider>
+            <div class="range">
+                <p>{{min}}</p>
+                <p>{{max}}</p>
+            </div>
+        </div>
+        <div class="filter-controls">
+            <div class="apply-btn" (click)="applyRange(true)">Apply</div>
+            <div class="clear-btn" (click)="applyRange(false)">Clear Filter</div>
+        </div>
+    </p-dialog>
+    <div class="view__nav">
+        <div class="view__search-input">
+            <input type="text" pInputText (keyup)="filterRecords()" [(ngModel)]="filterValue" />
+            <i class="pi pi-search search-icon" style="font-size: 1rem"></i>
+            <div class="filter-btn" (click)="openFilter()"><i class="pi pi-filter"></i>Filter</div>
+        </div>
+        <div>
+            <button class="save-btn" (click)="addTeamClick()"><i class="pi pi-plus"></i>Add Team</button>
+        </div>
+    </div>
+    <div class="view__table">
+        <app-table [columns]="tableColumns" [data]="filteredData" [containerFlag]="'team'">
+        </app-table>
+    </div>
+</div>

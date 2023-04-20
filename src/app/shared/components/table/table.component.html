@@ -1,0 +1,32 @@
+<p-confirmDialog [style]="{width: '50vw'}" [rejectLabel]="'Cancel'" [acceptLabel]="'Delete'" [acceptButtonStyleClass]="'dialogue-accept-button'" [rejectButtonStyleClass]="'dialogue-reject-button'"></p-confirmDialog>
+<p-dialog header="Employee Information" [(visible)]="visible" [style]="{width: '30vw'}" [position]="'right'">
+    <app-edit-employee [editId]="editId"></app-edit-employee>
+</p-dialog>
+<p-table [value]="data" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '50rem' }" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+    <ng-template pTemplate="header">
+        <tr>
+            <th [style.width]="column.width" *ngFor="let column of columns">{{column.label}}</th>
+            <th style="width:5%">Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data>
+        <tr>
+            <td [style.width]="column.width" *ngFor="let column of columns">
+                <div *ngIf="column.name !== 'qr_details'">
+                    {{ data[column.name] }}
+                </div>
+                <div class="qr" *ngIf="column.name === 'qr_details'">
+                    <ngx-qrcode [value]="data['team_name']+','+data['team_password']" cssClass="qr"></ngx-qrcode>
+                </div>
+            </td>
+            <td class="action ">
+                <i class="pi pi-eye icon view-icon " *ngIf="this.containerFlag === 'employee'" (click)="view(data)"></i> <i class=" pi pi-pencil icon edit-icon " (click)="edit(data) "></i> <i class="pi pi-trash icon delete-icon " (click)="delete(data) "></i></td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft ">
+        <p-button type="button " icon="pi pi-plus " styleClass="p-button-text "></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright ">
+        <p-button type="button " icon="pi pi-cloud " styleClass="p-button-text "></p-button>
+    </ng-template>
+</p-table>

@@ -1,0 +1,50 @@
+<div class="view">
+    <div class="view__title">
+        <img [src]="employee.image">
+    </div>
+    <div class="view__basic-information">
+        <div class="view__name">{{employee.firstName +" " +employee.surName}}</div>
+        <div class="view__email">{{employee.emailAddress}}</div>
+        <div class="view__reln">
+            <p-chip label="Employee"></p-chip>
+        </div>
+    </div>
+    <hr>
+    <div class="view__additional-information">
+        <div class="view__additonal-information__child">
+            <div>Designation</div>
+            <div>{{employee.jobPosition}}</div>
+        </div>
+        <div class="view__additonal-information__child">
+            <div>Contact</div>
+            <div>{{employee.emailAddress}}</div>
+        </div>
+        <div class="view__additonal-information__child">
+            <div>Address</div>
+            <div>{{employee.address}}</div>
+        </div>
+    </div>
+    <hr>
+    <div class="view__additional-information">
+        <div class="view__additonal-information__child">
+            <div>Start Date</div>
+            <div>{{employee.startsAt}}</div>
+        </div>
+        <div class="view__additonal-information__child">
+            <div>Role</div>
+            <div>Staff</div>
+        </div>
+        <div class="view__additonal-information__child">
+            <div>Billable Status</div>
+            <div>{{employee.userBillable}}</div>
+        </div>
+
+        <div class="view__additonal-information__child">
+            <div>Billable Hours</div>
+            <div>{{employee.billableHours}}</div>
+        </div>
+    </div>
+    <div class="edit-profile-btn" (click)="edit()">
+        <i class="pi pi-pencil"></i> Edit Profile
+    </div>
+</div>

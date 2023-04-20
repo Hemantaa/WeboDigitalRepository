@@ -1,0 +1,7 @@
+.form-select,
+.form-control {
+    background-color: #f9f9f9 !important;
+    font-size: .8rem;
+    font-weight: normal !important;
+    color: gray !important;
+}

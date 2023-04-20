@@ -1,0 +1,28 @@
+th {
+    font-size: 13px;
+    color: gray !important;
+    opacity: 0.8 !important;
+}
+
+td {
+    font-size: 13px;
+    font-weight: 600;
+    color: gray;
+}
+
+.action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    border: 1px solid gray;
+    padding: .3rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+:host ::ng-deep .qr>img {
+    width: 25px !important;
+    height: 25px !important;
+}
